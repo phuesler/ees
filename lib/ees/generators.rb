@@ -32,13 +32,6 @@ module Ees
       end
 
       def generate_behavior options
-        current_path_segements = Dir.pwd.split( File::SEPARATOR )
-
-        unless current_path_segements[-2] == "apps"
-          puts "Run this command inside of an app directory"
-          return
-        end
-
         render_behavior_erb(
           :behavior   => options[:sub_command],
           :name       => options[:argument],
