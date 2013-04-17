@@ -20,10 +20,10 @@
 %% ===================================================================
 
 start() ->
-  gen_server:start( {local, ?MODULE}, ?MODULE, [], []).
+  gen_server:start({local, ?MODULE}, ?MODULE, [], []).
 
 start_link() ->
-  gen_server:start_link( {local, ?MODULE}, ?MODULE, [], []).
+  gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 stop() -> gen_server:cast(?MODULE, stop).
 
@@ -32,24 +32,24 @@ stop() -> gen_server:cast(?MODULE, stop).
 %% ===================================================================
 
 init([]) ->
-  { ok, {} }.
+  {ok, {}}.
 
-handle_call( _Msg, _From, State ) ->
-  { reply, ok, State }.
+handle_call(_Msg, _From, State) ->
+  {reply, ok, State}.
 
-handle_cast( stop, State ) ->
-  { stop, normal, State };
+handle_cast(stop, State) ->
+  {stop, normal, State};
 
-handle_cast( _Msg, State ) ->
-  { stop, normal, State }.
+handle_cast(_Msg, State) ->
+  {stop, normal, State}.
 
 code_change(_OldVsn, State, _Extra) ->
-  { ok, State }.
+  {ok, State}.
 
-handle_info( _Info, State ) ->
-  { noreply, State }.
+handle_info(_Info, State) ->
+  {noreply, State}.
 
-terminate( _Reason, _State ) ->
+terminate(_Reason, _State) ->
   whatever.
 
 %% ===================================================================
